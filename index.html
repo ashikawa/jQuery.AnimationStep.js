@@ -1,0 +1,49 @@
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="css animation sample">
+	<title>animation step</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./js/jquery.animationstep.js"></script>
+</head>
+<body>
+
+<style>
+#container {
+  width: 100px;
+  height: 50px;
+
+  -webkit-animation-name: animation1;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: 3;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: both;
+}
+
+@-webkit-keyframes animation1{
+  0%  { background-color: #000000; }
+  100%{ background-color: #FFFFFF; }
+}
+
+#container.animation1-end {
+  -webkit-animation-name: animation2;
+}
+
+@-webkit-keyframes animation2{
+    0%{ background-color: #FF0000; }
+  100%{ background-color: #FFFFFF; }
+}
+
+</style>
+<script>
+$(function () {
+	$('#container').animationstep(function (name, state, iteration, event) {
+		console.log(arguments);
+	});
+});
+</script>
+
+<div id="container"></div>
+
+</body>
+</html>
