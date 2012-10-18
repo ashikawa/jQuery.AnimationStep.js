@@ -1,4 +1,4 @@
-# jQuery.animationstep.js
+# jQuery.AnimationStep.js
 
 
 ## Description
@@ -29,13 +29,13 @@ CSS3アニメーションを適用している要素でプラグラインを実�
 ```
 
 ```JavaScript
-$(function (){
+$(function () {
 	var options = {};
 	$('div.container').animationstep(options);
 });
 ```
 
-アニメーション開始時と、終了時にクラス名が切り替わる.
+アニメーション開始時と、終了時にクラス名が切り替わる.  
 追加されるクラス名は [animation-name]-start, [animation-name]-end となる.
 
 
@@ -43,22 +43,24 @@ $(function (){
 
 複数の書き方をサポート
 
-+ 1.単一のコールバック関数
+#### 1.単一のコールバック関数
 
 ```JavaScript
+var callback = function () {};
+
 var options = callback;
 ```
 
-+ 2.アニメーション名(animation-name)とコールバック関数のオブジェクト
+#### 2.アニメーション名(animation-name)とコールバック関数のオブジェクト
 
 ```JavaScript
 var options = {
 	animation1: callback,
 	animation2: callback
-}
+};
 ```
 
-+ 3.アニメーション名とステータス、コールバック関数のオブジェクト
+#### 3.アニメーション名とステータス、コールバック関数のオブジェクト
 
 ```JavaScript
 var options = {
@@ -66,13 +68,13 @@ var options = {
 		'start': callback,
 		'iteration': callback,
 		'end': callback
-	}
+	},
 	animation2: {
 		'start': callback,
 		'iteration': callback,
 		'end': callback
 	}
-}
+};
 ```
 
 ### コールバック関数の引数
@@ -81,11 +83,11 @@ var options = {
 function (name, state, iteration, event) { }
 ```
 
-+ name (string)
++ name (string)  
 	アニメーション名
-+ state (string)
++ state (string)  
 	start, iteration, end のどれか
-+ iteration (Number)
++ iteration (Number)  
 	アニメーション毎の iteration 回数
-+ event (jQuery.Event)
++ event (jQuery.Event)  
 	イベントオブジェクト
