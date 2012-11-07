@@ -1,10 +1,10 @@
 /**
  * @preserve jquery.animationstep.js
- * 
+ *
  * CSSアニメーション用のイベントの管理
  * コンテナへのクラス名を自動設定
  * ループ回数のカウント
- * 
+ *
  * @author s.ashikawa
  */
 /*global $, jQuery*/
@@ -52,7 +52,7 @@
 			var $this		= $(element),
 				iterations	= {};	// animation-name : number
 
-			$this.bind('webkitAnimationStart animatinostart', function (event) {
+			$this.on('webkitAnimationStart animatinostart', function (event) {
 
 				var animationName	= event.originalEvent.animationName,
 					i = iterations[animationName] = 0;
@@ -62,7 +62,7 @@
 				callback.apply(this, ['start', i, event]);
 			});
 			
-			$this.bind('webkitAnimationEnd animationend', function (event) {
+			$this.on('webkitAnimationEnd animationend', function (event) {
 
 				var animationName	= event.originalEvent.animationName,
 					i = iterations[animationName];
@@ -73,7 +73,7 @@
 				callback.apply(this, ['end', i, event]);
 			});
 			
-			$this.bind('webkitAnimationIteration animationiteration', function (event) {
+			$this.on('webkitAnimationIteration animationiteration', function (event) {
 
 				var animationName	= event.originalEvent.animationName,
 					i = ++iterations[animationName];
